@@ -1,28 +1,14 @@
-#include <iostream>
-using namespace std;
-
-int main() {
-    int n;
-    
-    cout << "Enter the number of Fibonacci terms to generate:";
-    cin >> n;
-    
-    if (n <= 0) {
-        return 0; 
+class Solution {
+public:
+    int fib(int n) {
+       if (n <= 1) return n;
+        int prev = 0, curr = 1;
+        for (int i = 2; i <= n; i++) {
+            int next = prev + curr;
+            prev = curr;
+            curr = next;
+        }
+        
+        return curr; 
     }
-    
-    long long int first = 0, second = 1, next;
-    
-    cout << first;
-  
-    for (int i = 2; i <= n; i++) {
-        cout << " " << second;
-        next = first + second;
-        first = second;
-        second = next;
-    }
-    
-    cout << endl;
-    
-    return 0;
 }
